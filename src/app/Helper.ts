@@ -27,10 +27,20 @@ const  lines = new LineStyle(
     "4",
     "38400"
   );
-export  const pointStyle = (feature,resolution) =>  new Style({
+
+
+export  const pointStyle = (feature,resolution) => { 
+
+  //condition get etat projet color
+  let colorp ="red"; 
+
+
+  return new Style({
+
+
     image: new CircleStyle({
       radius: 5,
-      fill: new Fill({ color: 'green' }),
+      fill: new Fill({ color: colorp }),
       stroke: new Stroke({ color: 'white', width: 2 }),
     }),
 
@@ -52,7 +62,7 @@ export  const pointStyle = (feature,resolution) =>  new Style({
     
     
     })
-  });
+  });}
   
   export  const  lineStringStyle = (feature,resolution)=>  new Style({
     stroke: new Stroke({

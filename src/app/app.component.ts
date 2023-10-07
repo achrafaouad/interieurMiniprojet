@@ -278,6 +278,63 @@ export class AppComponent implements OnInit {
 
 
         }
+       else if (Layer === this.vectorProject) {
+          vv = `<table id="customers" class="table-style">
+        <thead>
+          <tr>
+            <th colspan="2"><b>Projet</b></th>
+          </tr>
+        </thead>
+        <tr>
+          <td class="boldy" colspan="2" style="cursor:pointer" >
+          <span class="clickable-td" >${object.Intitulé}</span>
+          </td>
+        </tr>
+        <tr>
+          <td><b>Région </b></td>
+          <td font-style="italic">${object.Région}</td>
+        </tr>
+        <tr>
+          <td><b>id_2 </b></td>
+          <td font-style="italic">${object.id_2}</td>
+        </tr>
+        <tr>
+          <td><b>Avancement </b></td>
+          <td font-style="italic">${object.Avancement}</td>
+        </tr>
+        <tr>
+          <td><b>layer </b></td>
+          <td>${object.layer}</td>
+        </tr>
+        <tr>
+          <td><b>Catégorie </b></td>
+          <td>${object.Catégorie}</td>
+        </tr>
+        <tr>
+          <td><b>Adresse </b></td>
+          <td>${object.Adresse_du}</td>
+        </tr>
+      
+        <tr>
+          <td><b>Zones Concerné </b></td>
+          <td>${object.Zones_Conc}</td>
+        </tr>
+        <tr>
+          <td><b>PF</b></td>
+          <td>${object.PF}</td>
+        </tr>
+      
+      </table>
+      `
+
+
+
+          this.content.innerHTML = vv
+
+          this.overlay.setPosition(evt.coordinate)
+
+
+        }
       }
         
         
@@ -346,9 +403,11 @@ flyTo(location: any, done: any) {
       this.vectorDouar.setSource(douarsource);
       const extent = douarsource.getExtent();
   
+      console.log(extent)
+
   
       // Set the view of the map to the calculated extent
-      this.map.getView().fit(extent, { duration: 2000, size: this.map.getSize(), padding: [90,90, 90, 90] });
+      this.map.getView().fit(extent, { duration: 2000, size: this.map.getSize() ,  padding: [350, 20, 350, 20] });
     }else{
 
       Swal.fire({
